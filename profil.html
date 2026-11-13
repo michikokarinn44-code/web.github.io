@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROFIL - STEAK SIMANTAN</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            color: #222;
+        }
+
+        /* NAVBAR */
+        header {
+            background: #171717;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            border-bottom: 3px solid #d83228;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #e6392f;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        nav a {
+            color: #eee;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 11px 13px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: white;
+            background: #d83228;
+        }
+
+        /* BANNER PROFIL */
+        .hero {
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            padding: 60px 8%;
+            color: white;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.9),
+                    rgba(0,0,0,0.55),
+                    rgba(0,0,0,0.15)
+                ),
+                url("https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1600&q=85");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero small {
+            color: #ff6258;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.15;
+            margin: 18px 0;
+        }
+
+        .hero h1 span {
+            color: #e6392f;
+        }
+
+        .hero p {
+            color: #eee;
+            font-size: 15px;
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            background: #d83228;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #a92119;
+            transform: translateY(-2px);
+        }
+
+        /* INFORMASI SINGKAT */
+        .info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 35px;
+            padding: 25px 8%;
+            background: #f6f6f6;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info p {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .info span {
+            color: #d83228;
+            margin-right: 7px;
+        }
+
+        /* TENTANG KAMI */
+        .about {
+            padding: 65px 8%;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 9px;
+            display: block;
+        }
+
+        .subtitle {
+            color: #d83228;
+            font-weight: bold;
+            font-size: 13px;
+            letter-spacing: 3px;
+        }
+
+        .about h2 {
+            font-size: 32px;
+            margin: 12px 0 20px;
+        }
+
+        .about-text p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        /* VISI DAN MISI */
+        .vision {
+            padding: 65px 8%;
+            background: #f7f7f7;
+            text-align: center;
+        }
+
+        .vision h2 {
+            font-size: 32px;
+            margin: 12px 0;
+        }
+
+        .description {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .vision-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 35px;
+            text-align: left;
+        }
+
+        .vision-item {
+            padding: 30px;
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 9px;
+            transition: 0.3s;
+        }
+
+        .vision-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .vision-item .number {
+            color: #d83228;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .vision-item h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .vision-item p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        /* KEUNGGULAN */
+        .advantages {
+            padding: 65px 8%;
+            text-align: center;
+        }
+
+        .advantages h2 {
+            font-size: 32px;
+            margin: 12px 0;
+        }
+
+        .advantages-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 35px;
+            text-align: left;
+        }
+
+        .advantage-item {
+            padding: 25px;
+            border: 1px solid #eee;
+            border-radius: 9px;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .advantage-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .advantage-item .symbol {
+            font-size: 30px;
+            color: #d83228;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .advantage-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .advantage-item p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* AJAKAN */
+        .contact {
+            margin: 0 8% 60px;
+            padding: 35px 20px;
+            background: #191919;
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 12px;
+        }
+
+        .contact p {
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 22px;
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 25px 7%;
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        footer strong {
+            color: #e6392f;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 12px;
+                padding: 9px;
+            }
+
+            .hero {
+                min-height: 380px;
+                padding: 45px 7%;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image img {
+                height: 260px;
+            }
+
+            .vision-list {
+                grid-template-columns: 1fr;
+            }
+
+            .advantages-list {
+                grid-template-columns: 1fr;
+            }
+
+            .about h2,
+            .vision h2,
+            .advantages h2 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGASI ATAS -->
+    <header>
+        <div class="logo">STEAK <span>SIMANTAN.</span></div>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="profil.html" class="active">PROFIL</a>
+            <a href="produk.html">PRODUK</a>
+            <a href="kontak.html">KONTAK</a>
+        </nav>
+    </header>
+
+    <!-- BANNER PROFIL -->
+    <section class="hero">
+        <div class="hero-content">
+            <small>TENTANG KAMI</small>
+
+            <h1>MENGENAL<br>
+                <span>STEAK SIMANTAN</span>
+            </h1>
+
+            <p>
+              Web ini adalah web untuk melengkapi tugas sekolah Informatika SMA kelas XI
+            </p>
+
+            <a href="#tentang" class="btn">KENALI KAMI &darr;</a>
+        </div>
+    </section>
+
+    <!-- INFORMASI SINGKAT -->
+    <section class="info">
+        <p><span>✓</span> Mengutamakan Kualitas</p>
+        <p><span>✓</span> Pilihan Menu Beragam</p>
+        <p><span>✓</span> Mengutamakan Kepuasan</p>
+    </section>
+
+    <!-- TENTANG KAMI -->
+    <section class="about" id="tentang">
+        <div class="subtitle">PROFIL USAHA</div>
+
+        <div class="about-content">
+
+            <div class="about-image">
+                <img
+                    src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=900&q=85"
+                    alt="Hidangan steak Steak Simantan">
+            </div>
+
+            <div class="about-text">
+                <h2>Cerita di Balik Steak Simantan</h2>
+
+                <p>
+                    Steak Simantan merupakan usaha kuliner yang
+                    berfokus pada sajian steak dengan cita rasa
+                    yang menggugah selera. Kami hadir untuk
+                    memberikan pilihan hidangan yang dapat
+                    dinikmati dalam berbagai suasana.
+                </p>
+
+                <p>
+                    Kami percaya bahwa makanan bukan hanya tentang
+                    rasa, tetapi juga tentang pengalaman dan
+                    kebersamaan. Karena itu, Steak Simantan ingin
+                    menjadi pilihan bagi pelanggan yang ingin
+                    menikmati hidangan steak bersama orang-orang
+                    terdekat.
+                </p>
+
+                <p>
+                    Melalui beragam pilihan menu, kami berupaya
+                    memberikan pengalaman bersantap yang
+                    menyenangkan dan berkesan bagi setiap pelanggan.
+                </p>
+
+                <a href="PRODUK.html" class="btn">LIHAT PRODUK &rarr;</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- VISI DAN MISI -->
+    <section class="vision">
+        <div class="subtitle">TUJUAN KAMI</div>
+        <h2>Visi dan Misi</h2>
+
+        <p class="description">
+            Komitmen kami dalam memberikan pengalaman kuliner
+            yang menyenangkan bagi pelanggan.
+        </p>
+
+        <div class="vision-list">
+
+            <div class="vision-item">
+                <div class="number">01</div>
+
+                <h3>Visi Kami</h3>
+
+                <p>
+                    Menjadi usaha kuliner steak yang dikenal
+                    karena kualitas hidangan, cita rasa yang
+                    memuaskan, serta pelayanan yang ramah kepada
+                    setiap pelanggan.
+                </p>
+            </div>
+
+            <div class="vision-item">
+                <div class="number">02</div>
+
+                <h3>Misi Kami</h3>
+
+                <p>
+                    Menyediakan pilihan menu steak yang beragam,
+                    menjaga kualitas sajian, memberikan pelayanan
+                    yang baik, dan menciptakan pengalaman makan
+                    yang nyaman serta berkesan.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- KEUNGGULAN -->
+    <section class="advantages">
+        <div class="subtitle">MENGAPA KAMI?</div>
+        <h2>Keunggulan Steak Simantan</h2>
+
+        <p class="description">
+            Hal-hal yang menjadi perhatian kami dalam menyajikan
+            pengalaman bersantap bagi pelanggan.
+        </p>
+
+        <div class="advantages-list">
+
+            <div class="advantage-item">
+                <div class="symbol">01</div>
+
+                <h3>Pilihan Menu</h3>
+
+                <p>
+                    Menawarkan beragam pilihan hidangan steak
+                    agar pelanggan dapat menemukan menu sesuai
+                    selera mereka.
+                </p>
+            </div>
+
+            <div class="advantage-item">
+                <div class="symbol">02</div>
+
+                <h3>Cita Rasa</h3>
+
+                <p>
+                    Mengutamakan sajian yang menggugah selera
+                    untuk memberikan pengalaman makan yang
+                    menyenangkan.
+                </p>
+            </div>
+
+            <div class="advantage-item">
+                <div class="symbol">03</div>
+
+                <h3>Kenyamanan</h3>
+
+                <p>
+                    Berupaya menciptakan pengalaman bersantap
+                    yang nyaman untuk dinikmati bersama
+                    keluarga maupun teman.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- AJAKAN -->
+    <section class="contact">
+        <h2>Yuk, Kenali Menu Kami!</h2>
+
+        <p>
+            Temukan berbagai pilihan hidangan steak dari
+            Steak Simantan dan pilih menu favoritmu.
+        </p>
+
+        <a href="PRODUK.html" class="btn">JELAJAHI MENU &rarr;</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>STEAK SIMANTAN</strong></p>
+        <p>Terima kasih telah mengunjungi website kami.</p>
+        <p>&copy; 2026 Steak Simantan. Semua Hak Dilindungi.</p>
+    </footer>
+
+</body>
+</html>

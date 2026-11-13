@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEAK SIMANTAN</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            color: #222;
+        }
+
+        /* NAVBAR */
+        header {
+            background: #171717;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            border-bottom: 3px solid #d83228;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #e6392f;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        nav a {
+            color: #eee;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 11px 13px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: white;
+            background: #d83228;
+        }
+
+        /* BANNER UTAMA */
+        .hero {
+            min-height: 490px;
+            display: flex;
+            align-items: center;
+            padding: 60px 8%;
+            color: white;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.9),
+                    rgba(0,0,0,0.55),
+                    rgba(0,0,0,0.15)
+                ),
+                url("https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1600&q=85");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 570px;
+        }
+
+        .hero small {
+            color: #ff6258;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.15;
+            margin: 18px 0;
+        }
+
+        .hero h1 span {
+            color: #e6392f;
+        }
+
+        .hero p {
+            color: #eee;
+            font-size: 15px;
+            line-height: 1.9;
+            margin-bottom: 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            background: #d83228;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #a92119;
+            transform: translateY(-2px);
+        }
+
+        /* KEUNGGULAN */
+        .info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 35px;
+            padding: 25px 8%;
+            background: #f6f6f6;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info p {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .info span {
+            color: #d83228;
+            margin-right: 7px;
+        }
+
+        /* MENU PRODUK */
+        .menu {
+            padding: 65px 8%;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #d83228;
+            font-weight: bold;
+            font-size: 13px;
+            letter-spacing: 3px;
+        }
+
+        .menu h2 {
+            font-size: 32px;
+            margin: 12px 0;
+        }
+
+        .description {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .menu-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 35px;
+            text-align: left;
+        }
+
+        .menu-item {
+            border: 1px solid #eee;
+            border-radius: 9px;
+            overflow: hidden;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .menu-item img {
+            display: block;
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+
+        .menu-item h3 {
+            padding: 18px 18px 8px;
+            font-size: 19px;
+        }
+
+        .menu-item p {
+            padding: 0 18px 20px;
+            color: #777;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* AJAKAN */
+        .contact {
+            margin: 0 8% 60px;
+            padding: 35px 20px;
+            background: #191919;
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 12px;
+        }
+
+        .contact p {
+            color: #ccc;
+            font-size: 14px;
+            margin-bottom: 22px;
+            line-height: 1.7;
+        }
+
+        /* KETERANGAN TUGAS SEKOLAH */
+        .school-info {
+            padding: 20px 7%;
+            background: #f6f6f6;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .school-info p {
+            color: #777;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .school-info strong {
+            color: #d83228;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 25px 7%;
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        footer strong {
+            color: #e6392f;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 12px;
+                padding: 9px;
+            }
+
+            .hero {
+                min-height: 430px;
+                padding: 45px 7%;
+            }
+
+            .menu-list {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-item img {
+                height: 230px;
+            }
+
+            .menu h2 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGASI ATAS -->
+    <header>
+        <div class="logo">STEAK <span>SIMANTAN.</span></div>
+
+        <nav>
+            <a href="index.html" class="active">HOME</a>
+            <a href="profil.html">PROFIL</a>
+            <a href="produk.html">PRODUK</a>
+            <a href="kontak.html">KONTAK</a>
+        </nav>
+    </header>
+
+    <!-- BANNER -->
+    <section class="hero">
+        <div class="hero-content">
+            <small>SELAMAT DATANG DI</small>
+
+            <h1>STEAK SIMANTAN<br>
+                <span>Rasa yang Istimewa</span>
+            </h1>
+
+            <p>
+                Web ini adalah web untuk melengkapi tugas sekolah Informatika SMA kelas XI
+            </p>
+
+            <a href="PRODUK.html" class="btn">JELAJAHI MENU &rarr;</a>
+        </div>
+    </section>
+
+    <!-- INFORMASI SINGKAT -->
+    <section class="info">
+        <p><span>✓</span> Pilihan Menu Steak</p>
+        <p><span>✓</span> Sajian Menggugah Selera</p>
+        <p><span>✓</span> Cocok untuk Bersantai</p>
+    </section>
+
+    <!-- MENU FAVORIT -->
+    <section class="menu">
+        <div class="subtitle">MENU KAMI</div>
+        <h2>Temukan Favoritmu</h2>
+
+        <p class="description">
+            Berbagai pilihan steak untuk menemani waktu makanmu.
+        </p>
+
+        <div class="menu-list">
+
+            <div class="menu-item">
+                <img
+                    src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80"
+                    alt="Beef steak">
+
+                <h3>Beef Steak</h3>
+                <p>Steak daging sapi dengan tampilan yang menggugah selera.</p>
+            </div>
+
+            <div class="menu-item">
+                <img
+                    src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=700&q=80"
+                    alt="Steak spesial">
+
+                <h3>Steak Special</h3>
+                <p>Hidangan steak untuk menikmati momen makan yang istimewa.</p>
+            </div>
+
+            <div class="menu-item">
+                <img
+                    src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=700&q=80"
+                    alt="Steak dengan pelengkap">
+
+                <h3>Steak Premium</h3>
+                <p>Pilihan hidangan steak dengan pelengkap yang lezat.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section class="contact">
+        <h2>Ingin Mengenal Steak Simantan?</h2>
+        <p>
+            Lihat pilihan produk kami atau hubungi kami
+            untuk mendapatkan informasi lebih lanjut.
+        </p>
+
+        <a href="KONTAK.html" class="btn">HUBUNGI KAMI</a>
+    </section>
+
+    <!-- KETERANGAN TUGAS SEKOLAH -->
+    <section class="school-info">
+        <p>
+            Website <strong>Steak Simantan</strong> ini dibuat
+            untuk memenuhi tugas sekolah mata pelajaran
+            Informatika kelas XI (11) SMA.
+        </p>
+
+        <p>
+            Sebagai media pembelajaran dan penerapan
+            pembuatan website menggunakan HTML dan CSS.
+        </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>STEAK SIMANTAN</strong></p>
+        <p>Terima kasih telah mengunjungi website kami.</p>
+        <p>&copy; 2026 Steak Simantan. Semua Hak Dilindungi.</p>
+    </footer>
+
+</body>
+</html>

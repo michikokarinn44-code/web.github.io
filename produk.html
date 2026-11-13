@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRODUK - STEAK SIMANTAN</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            color: #222;
+        }
+
+        /* NAVBAR */
+        header {
+            background: #171717;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            border-bottom: 3px solid #d83228;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #e6392f;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        nav a {
+            color: #eee;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 11px 13px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: white;
+            background: #d83228;
+        }
+
+        /* BANNER MENU */
+        .hero {
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            padding: 55px 8%;
+            color: white;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.9),
+                    rgba(0,0,0,0.55),
+                    rgba(0,0,0,0.15)
+                ),
+                url("https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1600&q=85");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero small {
+            color: #ff6258;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.15;
+            margin: 18px 0;
+        }
+
+        .hero h1 span {
+            color: #e6392f;
+        }
+
+        .hero p {
+            color: #eee;
+            font-size: 15px;
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            background: #d83228;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #a92119;
+            transform: translateY(-2px);
+        }
+
+        /* JUDUL MENU */
+        .menu-section {
+            padding: 65px 8%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .subtitle {
+            color: #d83228;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .section-heading h2 {
+            font-size: 32px;
+            margin: 12px 0;
+        }
+
+        .section-heading p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* KARTU PRODUK */
+        .menu-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .menu-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+        }
+
+        .menu-image {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+            background: #eee;
+        }
+
+        .menu-content {
+            padding: 23px;
+        }
+
+        .menu-content h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .menu-content p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.8;
+            min-height: 50px;
+            margin-bottom: 18px;
+        }
+
+        .menu-price {
+            display: block;
+            color: #d83228;
+            font-size: 23px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .menu-card .btn {
+            display: block;
+            text-align: center;
+        }
+
+        /* SUMBER GAMBAR */
+        .image-source {
+            display: block;
+            padding: 10px 15px;
+            background: #f7f7f7;
+            color: #777;
+            font-size: 11px;
+            line-height: 1.6;
+            border-top: 1px solid #eee;
+        }
+
+        .image-source span {
+            color: #d83228;
+            font-weight: bold;
+        }
+
+        /* INFORMASI TAMBAHAN */
+        .promo {
+            margin: 0 8% 60px;
+            padding: 35px 25px;
+            background: #191919;
+            color: white;
+            border-left: 5px solid #d83228;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .promo h2 {
+            margin-bottom: 12px;
+        }
+
+        .promo p {
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 25px 7%;
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        footer strong {
+            color: #e6392f;
+        }
+
+        .school-info {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #333;
+            color: #bbb;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .school-info span {
+            color: #e6392f;
+            font-weight: bold;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .menu-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 12px;
+                padding: 9px;
+            }
+
+            .hero {
+                min-height: 330px;
+                padding: 40px 7%;
+            }
+
+            .menu-section {
+                padding: 45px 6%;
+            }
+
+            .menu-list {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-image {
+                height: 240px;
+            }
+
+            .section-heading h2 {
+                font-size: 27px;
+            }
+
+            .promo {
+                margin: 0 6% 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGASI -->
+    <header>
+        <div class="logo">STEAK <span>SIMANTAN.</span></div>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="profil.html">PROFIL</a>
+            <a href="produk.html" class="active">PRODUK</a>
+            <a href="kontak.html">KONTAK</a>
+        </nav>
+    </header>
+
+    <!-- BANNER -->
+    <section class="hero">
+        <div class="hero-content">
+            <small>MENU ANDALAN KAMI</small>
+
+            <h1>NIKMATI<br>
+                <span>STEAK FAVORITMU</span>
+            </h1>
+
+            <p>
+                Web ini adalah web untuk melengkapi tugas sekolah Informatika SMA kelas XI
+            </p>
+
+            <a href="#menu" class="btn">LIHAT MENU &darr;</a>
+        </div>
+    </section>
+
+    <!-- DAFTAR MENU -->
+    <section class="menu-section" id="menu">
+
+        <div class="section-heading">
+            <div class="subtitle">PILIHAN SPESIAL</div>
+
+            <h2>Menu Steak Simantan</h2>
+
+            <p>
+                Pilih hidangan favoritmu dari tiga menu
+                pilihan kami.
+            </p>
+        </div>
+
+        <div class="menu-list">
+
+            <!-- MENU 1 -->
+            <div class="menu-card">
+
+                <img
+                    class="menu-image"
+                    src="gambar/tomatoma.jpeg"
+                    alt="Tomahawk Steak"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/222222/ffffff?text=Gambar+Steak+1';"
+                >
+
+                <div class="menu-content">
+
+                    <h3>Tomahawk Steak</h3>
+
+                    <p>
+                        Hidangan steak daging sapi dengan
+                        potongan khas yang menggugah selera.
+                        Cocok untuk menikmati hidangan spesial.
+                    </p>
+
+                    <span class="menu-price">
+                        Rp120.000
+                    </span>
+
+                    <a href="KONTAK.html" class="btn">
+                        PESAN MENU
+                    </a>
+
+                </div>
+
+                <small class="image-source">
+                    <span>Sumber gambar:</span>
+                    Dokumentasi produk milik usaha orang tua.
+                </small>
+
+            </div>
+
+            <!-- MENU 2 -->
+            <div class="menu-card">
+
+                <img
+                    class="menu-image"
+                    src="gambar/sirloin.jpeg"
+                    alt="Sirloin Steak"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/222222/ffffff?text=Gambar+Steak+2';"
+                >
+
+                <div class="menu-content">
+
+                    <h3>Sirloin Steak</h3>
+
+                    <p>
+                        Steak sirloin dengan cita rasa
+                        lezat yang cocok dinikmati
+                        bersama keluarga maupun teman.
+                    </p>
+
+                    <span class="menu-price">
+                        Rp100.000
+                    </span>
+
+                    <a href="KONTAK.html" class="btn">
+                        PESAN MENU
+                    </a>
+
+                </div>
+
+                <small class="image-source">
+                    <span>Sumber gambar:</span>
+                    Dokumentasi produk milik usaha orang tua.
+                </small>
+
+            </div>
+
+            <!-- MENU 3 -->
+            <div class="menu-card">
+
+                <img
+                    class="menu-image"
+                    src="gambar/pasta.jpeg"
+                    alt="Pasta"
+                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/222222/ffffff?text=Gambar+Steak+3';"
+                >
+
+                <div class="menu-content">
+
+                    <h3>Pasta</h3>
+
+                    <p>
+                        Hidangan pasta dengan sajian
+                        menarik yang menjadi pilihan
+                        menu selain steak.
+                    </p>
+
+                    <span class="menu-price">
+                        Rp90.000
+                    </span>
+
+                    <a href="KONTAK.html" class="btn">
+                        PESAN MENU
+                    </a>
+
+                </div>
+
+                <small class="image-source">
+                    <span>Sumber gambar:</span>
+                    Dokumentasi produk milik usaha orang tua.
+                </small>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- AJAKAN -->
+    <section class="promo">
+
+        <h2>Sudah Menemukan Menu Favoritmu?</h2>
+
+        <p>
+            Hubungi Steak Simantan untuk mendapatkan
+            informasi lebih lanjut mengenai menu kami.
+        </p>
+
+        <br>
+
+        <a href="KONTAK.html" class="btn">
+            HUBUNGI KAMI &rarr;
+        </a>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            <strong>STEAK SIMANTAN</strong>
+        </p>
+
+        <p>
+            Terima kasih telah mengunjungi website kami.
+        </p>
+
+        <div class="school-info">
+
+            <p>
+                Website ini dibuat sebagai salah satu tugas
+                sekolah SMA kelas XI dalam pembelajaran
+                pembuatan website.
+            </p>
+
+            <p>
+                <span>Proyek Pembelajaran HTML & CSS</span>
+            </p>
+
+            <p>
+                Foto produk yang ditampilkan merupakan
+                dokumentasi gambar milik usaha orang tua
+                yang digunakan untuk keperluan proyek website ini.
+            </p>
+
+            <p>
+                Informasi produk dan harga ditampilkan
+                sebagai bagian dari proyek pembelajaran.
+            </p>
+
+        </div>
+
+        <p style="margin-top: 12px;">
+            &copy; 2026 Steak Simantan. Semua Hak Dilindungi.
+        </p>
+
+    </footer>
+
+</body>
+</html>
